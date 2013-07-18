@@ -26,6 +26,19 @@ end
 def show
 end
 
+def edit
+end
+
+def update
+  if @step.update_attributes(params[:step])
+    flash[:notice] = "This step has been updated."
+    redirect_to [@project, @step]
+  else
+    flash[:alert] = "This step has not been updated."
+    render :action => "edit"
+  end
+end
+
 private
   def find_project
     @project = Project.find(params[:project_id])
