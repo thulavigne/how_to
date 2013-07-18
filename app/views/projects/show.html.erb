@@ -10,3 +10,12 @@
      :confirm => "Are you sure you want to delete this project?" %>
 
 <%= link_to "New Step", new_project_step_path(@project) %>
+
+<ul id='steps'>
+  <% @project.steps.each do |step| %>
+    <li>
+      #<%= step.id %> -
+      <%= link_to step.title, [@project, step] %>
+    </li>
+  <% end %>
+</ul>
